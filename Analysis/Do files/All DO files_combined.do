@@ -1,4 +1,6 @@
 *DO_FILE 1: cleaned data*
+*Changing the working directory as the same as the GitHub repositiry folder*
+cd "S:\URBN\mydept\Public\Projects\2021\2021_Charlotte Is Creative\2021-Charlotte_is_Creative"
 
 *importing data from SPSS*
 import spss using "S:\URBN\mydept\Public\Projects\2021\2021_Charlotte Is Creative\2021-Charlotte_is_Creative\Data\Working\Charlotte Is Creative_WORKING_10.15.21.sav" 
@@ -27,6 +29,11 @@ drop in 637/640
 recode Q19 3=.
 recode Q22 3=.
 recode Q28_8 1=.
+recode Q35_1 6=.
+recode Q35_2 6=.
+recode Q35_3 6=.
+recode Q36_1 6=.
+recode Q36_2 6=.
 recode Q37 6=.
 recode Q38 6=.
 recode Q41 7=.
@@ -195,3 +202,9 @@ graph hbar (count) Q46_1 Q46_2 Q46_3 Q46_4 Q46_5 Q46_6 Q46_7 Q46_8 Q46_9 , legen
 
 *Horizontal bar graph for singular vs mixed races*
 graph hbar (mean) White Black Indian Other_Singular_Race Other_Asian_Races Multiple_Race , legend(label( 1 "White Only")) legend(label( 2 "African American/ Black only")) legend(label( 3 "Indian(Asian) only")) legend(label( 4 "Other Singular races")) legend(label( 5 "Other singular Asian races")) legend(label( 6 "Multiple/2 or more races"))
+
+*recoding for Household Income: e.Recode household income, combining variables Q48 and Q51 such that if Q49 is "Yes," use value from Q48 (personal income). If Q49 is "No," use value from Q51 (Household Income) . Note: Q 51 is displayed only if answered NO to Q49("Are you the only earner in your household?")*
+gen Household_income=.
+replace Household_income= Q48 if Q49==1
+replace Household_income=Q51 if Q49==2
+

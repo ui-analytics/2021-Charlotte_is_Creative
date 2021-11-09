@@ -1,3 +1,6 @@
+*Changing the working directory as the same as the GitHub repositiry folder*
+cd "S:\URBN\mydept\Public\Projects\2021\2021_Charlotte Is Creative\2021-Charlotte_is_Creative"
+
 *importing data from SPSS*
 import spss using "S:\URBN\mydept\Public\Projects\2021\2021_Charlotte Is Creative\2021-Charlotte_is_Creative\Data\Working\Charlotte Is Creative_WORKING_10.15.21.sav" 
 *sorting and dropping observations that answerd no: 1. a.Exclude participants who answer "No" to Q1 and/or Q2*
@@ -25,6 +28,11 @@ drop in 637/640
 recode Q19 3=.
 recode Q22 3=.
 recode Q28_8 1=.
+recode Q35_1 6=.
+recode Q35_2 6=.
+recode Q35_3 6=.
+recode Q36_1 6=.
+recode Q36_2 6=.
 recode Q37 6=.
 recode Q38 6=.
 recode Q41 7=.
